@@ -1,4 +1,5 @@
 *.iml
 *.class
 .vscode/
+.idea/
 *.xml
