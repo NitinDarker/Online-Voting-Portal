@@ -43,9 +43,15 @@ public class LandingPage {
     }
 
     public static void loggedIn(User user) {
-        System.out.println("\nYou are logged in...");
-        System.out.println("Username: " + user.getUsername());
-        OnlineVoting.votingPage(user);
+        try {
+            Thread.sleep(500);
+            System.out.println("\nYou are logged in...");
+            System.out.println("Welcome " + user.getUsername() + "!");
+            Thread.sleep(1000);
+            VotingPage.mainPage(user);
+        } catch (InterruptedException e) {
+            System.out.println("Sorry! Something has occurred on our end!");
+        }
     }
 
     public static void main(String[] args) {

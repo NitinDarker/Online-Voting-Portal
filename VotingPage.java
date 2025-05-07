@@ -4,12 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.UUID;
 
-public class OnlineVoting {
+public class VotingPage {
     static User user;
+    private static final String CANDIDATES_FILE = "./candidates.txt";
 
-    public static void votingPage(User currentUser) {
+    public static void mainPage(User currentUser) {
         user = currentUser;
         while (true) {
             System.out.println("\nWhat do you want to do?");
@@ -26,7 +26,7 @@ public class OnlineVoting {
                 sc.next();
             }
             int choice2 = sc.nextInt();
-            switch(choice2) {
+            switch (choice2) {
                 case 1 -> getCandidatesList();
                 case 2 -> placeVote();
                 case 3 -> getResults();
@@ -42,10 +42,9 @@ public class OnlineVoting {
 
     private static void getCandidatesList() {
         // Format: candidateID,name,party
-        String CANDIDATES_FILE = "./CIA2/candidates.txt";
-
         try (BufferedReader reader = new BufferedReader(new FileReader(CANDIDATES_FILE))) {
-            System.out.println(" ID |   Candidate Name  |  Party Name");
+            System.out.println("\n*******************************");
+            System.out.println("ID  |  Candidate Name |  Party Name");
 
             String line;
             while ((line = reader.readLine()) != null) {
@@ -56,23 +55,51 @@ public class OnlineVoting {
                 String[] parts = line.split(",");
 
                 try {
-                    UUID candidateId = UUID.fromString(parts[0]);
+                    String candidateId = (parts[0]);
                     String candidate = parts[1];
                     String party = parts[2];
 
-                    System.out.println(candidateId + "  " + candidate + "  " + party);
+                    System.out.println(candidateId + "  " + candidate + "   " + party);
+                    Thread.sleep(250);
                 } catch (IllegalArgumentException e) {
                     System.err.println("Error parsing line: " + line + " - " + e.getMessage());
+                } catch (InterruptedException e) {
+                    System.out.println("Sorry! Something has occurred on our end!");
                 }
             }
         } catch (IOException e) {
             System.err.println("An error occurred while reading candidate data from " + CANDIDATES_FILE + ": " + e.getMessage());
             return;
         }
+        System.out.println("**********************************\n");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            System.out.println("Sorry! Something has occurred on our end!");
+        }
         System.out.println("What would you like to do now?");
         System.out.println("1. Place your vote");
         System.out.println("2. Get voting results");
         System.out.println("3. Exit");
+        System.out.println("> ");
+
+        Scanner sc = new Scanner(System.in);
+        while (!sc.hasNextInt()) {
+            System.out.println("Invalid input! Please enter a number.");
+            System.out.print("> ");
+            sc.next();
+        }
+        int choice3 = sc.nextInt();
+        switch (choice3) {
+            case 1 -> placeVote();
+            case 2 -> getResults();
+            case 3 -> {
+                System.out.println("Exiting the voting portal. Thank you!");
+                sc.close();
+                return;
+            }
+            default -> System.out.println("Invalid input!");
+        }
     }
 
     private static void getResults() {
@@ -80,6 +107,15 @@ public class OnlineVoting {
     }
 
     private static void placeVote() {
-
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter ID of the candidate you would like to vote for: ");
+        System.out.println("> ");
+        while (!sc.hasNextInt()) {
+            System.out.println("Invalid input! Please enter a number.");
+            System.out.print("> ");
+            sc.next();
+        }
+        int choice4 = sc.nextInt();
     }
 }
+

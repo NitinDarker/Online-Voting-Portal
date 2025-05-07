@@ -7,7 +7,7 @@ public class User {
     private final UUID userId;
     private final String username, email, password;
     private boolean hasVoted;
-    private static final String USERS_FILE = "./CIA2/users.txt";
+    private static final String USERS_FILE = "./users.txt";
     private static final String DELIMITER = ",";
 
     public User(String email, String username, String password) {
