@@ -47,7 +47,7 @@ public class LandingPage {
             Thread.sleep(500);
             System.out.println("\nYou are logged in...");
             System.out.println("Welcome " + user.getUsername() + "!");
-            Thread.sleep(1000);
+            Thread.sleep(500);
             VotingPage.mainPage(user);
         } catch (InterruptedException e) {
             System.out.println("Sorry! Something has occurred on our end!");

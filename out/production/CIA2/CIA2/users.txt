@@ -1,4 +1,7 @@
-f7cf54ad-02ca-454a-b140-258da788308c,nitin@gmail.com,nitin,123123,false
+f7cf54ad-02ca-454a-b140-258da788308c,nitin@gmail.com,nitin,123123,true
 5b8d66fa-e189-441f-a118-f086f50a881e,jethaji@gmail.com,jethalal,ilovebabita,false
 405d0254-611b-4860-994e-082564e95c9d,kiaralol@gmail.com,kkrraa,ilovekiara,false
 6c830842-6527-4b0d-82c0-907fd7061a75,abcd@gmail.com,malinga,iloveyoukiara,false
+19c9dca7-d24f-464b-8e1d-79f4684b320e,aliabhatt@gmail.com,alia,ilovealia,false
+7e576b25-15ce-4a13-9246-fe1a089c9b14,salman@gmail.com,salmankhan,bhai,true
+728e84c5-b09c-42f1-89d1-eca00b97fee5,srk@gmail.com,srk,12345,true

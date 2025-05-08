@@ -9,6 +9,7 @@ public class User {
     private boolean hasVoted;
     private static final String USERS_FILE = "./users.txt";
     private static final String DELIMITER = ",";
+    // USERS_FILE Format: UUID,email,username,password,hasVoted
 
     public User(String email, String username, String password) {
         if (email == null || email.trim().isEmpty() ||
@@ -31,11 +32,12 @@ public class User {
         this.hasVoted = hasVoted;
     }
 
-    public UUID getUserId() {return userId;}
+    public UUID getUserID() {return userId;}
     public String getUsername() {return username;}
     public String getEmail() {return email;}
     public String getPassword() {return password;}
     public boolean hasVoted() {return hasVoted;}
+    public void changeVote() {this.hasVoted = true;}
 
     public void saveUser() {
         // File format: userId,username,password,email,hasVoted
