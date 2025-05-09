@@ -1,8 +1,10 @@
 package CIA2;
 
-import javax.annotation.processing.Filer;
 import java.io.*;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 
 public class VotingPage {
@@ -10,6 +12,9 @@ public class VotingPage {
     private static final String CANDIDATES_FILE = "./candidates.txt";
     private static final String VOTES_FILE = "./votes.txt";
     private static final String USERS_FILE = "./users.txt";
+    private static final LocalDate startDate = LocalDate.of(2025, 5, 1);
+    private static final LocalDate endDate = LocalDate.of(2025, 5, 30);
+
 
     public static void mainPage(User currentUser) {
         VotingPage.currentUser = currentUser;
@@ -112,6 +117,11 @@ public class VotingPage {
     }
 
     private static void getResults() {
+        LocalDate currentDate = LocalDate.now();
+//        if (currentDate.isBefore(endDate)) {
+//            System.out.println("Results will be visible after the Voting Period ends!");
+//            return;
+//        }
         Map<Integer, String> candidateNames = new HashMap<>();
         Map<Integer, String> candidateParties = new HashMap<>();
         Map<Integer, Integer> voteCounts = new HashMap<>();
@@ -252,6 +262,15 @@ public class VotingPage {
     }
 
     private static void placeVote() {
+        LocalDate currentDate = LocalDate.now();
+//        if (currentDate.isBefore(startDate)) {
+//            System.out.println("Voting period is not started yet!");
+//        }
+//        if (currentDate.isAfter(endDate)) {
+//            System.out.println("Voting Period has ended!");
+//            return;
+//        }
+
         Scanner sc = new Scanner(System.in);
         if (currentUser.hasVoted()) {
             System.out.println("You have already voted.");

@@ -1,6 +1,7 @@
 *.iml
 *.class
 .vscode/
+out/
 .idea/
 *.xml
 CIA2.iml

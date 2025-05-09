@@ -8,10 +8,19 @@ public class LandingPage {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter your email-Id: ");
         String email = sc.next();
+        String regex = "^[a-zA-Z0-9_+&*-]+(:?\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        if (!email.matches(regex)) {
+            System.err.println("Please enter a valid email address!");
+            return;
+        }
         System.out.print("Enter your new username: ");
         String username = sc.next();
         System.out.print("Enter a new password: ");
         String password = sc.next();
+        if (User.findUser(username) != null) {
+            System.err.println("This username is already taken!");
+            return;
+        }
         User newUser;
         try {
             newUser = new User(email, username, password);

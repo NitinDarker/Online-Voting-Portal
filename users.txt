@@ -5,3 +5,8 @@ f7cf54ad-02ca-454a-b140-258da788308c,nitin@gmail.com,nitin,123123,true
 19c9dca7-d24f-464b-8e1d-79f4684b320e,aliabhatt@gmail.com,alia,ilovealia,false
 7e576b25-15ce-4a13-9246-fe1a089c9b14,salman@gmail.com,salmankhan,bhai,true
 728e84c5-b09c-42f1-89d1-eca00b97fee5,srk@gmail.com,srk,12345,true
+c49678e9-d152-4249-b3ea-e2edd795eada,shivam@gmail.com,shiva,123,true
+94a99b8a-36fc-4a41-9490-97fb07d61ac9,abcd,abcd,abcd,true
+18668619-bd59-4209-9b8d-96bb0b38e39b,ahsihsh,ashish,123,true
+181b0233-4fcb-4f56-95ff-93ee86bf00f3,am@mail.com,adii,1234,true
+d4a16a2e-576e-4526-b274-d35bb9deb3b3,dslfjdas,asj;lfj,ads;lfj,false
